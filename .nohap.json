@@ -1,0 +1,13 @@
+{
+    "github": {
+        "repo": "step-docker-hub-push"
+    },
+    "pivotal_tracker": {
+        "project": {
+            "id": 933918
+        }
+    },
+    "hipchat": {
+        "room": "NoHAP"
+    }
+}
