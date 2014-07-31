@@ -1,3 +1,9 @@
 name: docker-hub-push
-version: 1.0.1
-description: docker-hub-push step
+version: 1.0.2
+description: |
+  docker-hub-push step
+  Options:
+    username: Docker Hub username
+    password: Docker Hub password
+    email: Docker Hub email
+    image: Docker image
