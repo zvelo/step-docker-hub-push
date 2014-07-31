@@ -20,5 +20,6 @@ then
 fi
 
 docker login --email="$DOCKER_EMAIL" --password="$DOCKER_PASSWORD" --username="$DOCKER_USERNAME"
+docker push $DOCKER_IMAGE_NAME
 
 set -e
