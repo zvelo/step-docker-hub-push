@@ -25,7 +25,6 @@ then
 fi
 
 
-
 docker_push() {
     set +e;
     local user="$1";
@@ -33,7 +32,8 @@ docker_push() {
     local email="$3";
     local image="$4";
 
-
+    docker version
+    docker images
     docker login --username="$user" --password="$pass" --email="$email";
     docker push $image;
     set -e;
