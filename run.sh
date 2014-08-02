@@ -34,8 +34,8 @@ docker_push() {
 
     docker version
     docker images
-    echo "Email: $email"
-    echo "docker login --username=$user $pass"
+    #echo "Email: $email"
+    #echo "docker login --username=$user $pass"
     docker login -u $user -p $pass -e $email;
     docker push $image;
     set -e;
