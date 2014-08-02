@@ -35,11 +35,12 @@ docker_push() {
     docker version
     docker images
     echo "Email: $email"
-    echo 'docker login --username=$user'
-    docker login --username=$user --password=$pass --email=$email;
+    echo "docker login --username=$user $pass"
+    docker login -u $user -p $pass -e $email;
     docker push $image;
     set -e;
 }
 
 docker_push $WERCKER_DOCKER_HUB_PUSH_USERNAME $WERCKER_DOCKER_HUB_PUSH_PASSWORD $WERCKER_DOCKER_HUB_PUSH_EMAIL $WERCKER_DOCKER_HUB_PUSH_IMAGE;
+#python $WERCKER_STEP_ROOT/docker-push.py $WERCKER_DOCKER_HUB_PUSH_USERNAME $WERCKER_DOCKER_HUB_PUSH_PASSWORD $WERCKER_DOCKER_HUB_PUSH_EMAIL $WERCKER_DOCKER_HUB_PUSH_IMAGE
 
