@@ -6,7 +6,19 @@ then
     exit 1;
 fi
 
-if [ ! -n "$WERCKER_DOCKER_HUB_PUSH_PASSWORD" ]
+if [ ! -n "$WERCKER_DOCKER_HUB_PUSH_PONE" ]
+then
+    error 'Please specify docker password';
+    exit 1;
+fi
+
+if [ ! -n "$WERCKER_DOCKER_HUB_PUSH_PTWO" ]
+then
+    error 'Please specify docker password';
+    exit 1;
+fi
+
+if [ ! -n "$WERCKER_DOCKER_HUB_PUSH_PTHREE" ]
 then
     error 'Please specify docker password';
     exit 1;
@@ -42,6 +54,8 @@ docker_push() {
 }
 
 #docker_push $WERCKER_DOCKER_HUB_PUSH_USERNAME $WERCKER_DOCKER_HUB_PUSH_PASSWORD $WERCKER_DOCKER_HUB_PUSH_EMAIL $WERCKER_DOCKER_HUB_PUSH_IMAGE;
-echo $WERCKER_DOCKER_HUB_PUSH_PASSWORD
-docker login -u $WERCKER_DOCKER_HUB_PUSH_USERNAME -p $WERCKER_DOCKER_HUB_PUSH_PASSWORD -e $WERCKER_DOCKER_HUB_PUSH_EMAIL
+
+PASSWORD=$WERCKER_DOCKER_HUB_PUSH_PONE\$$WERCKER_DOCKER_HUB_PUSH_PTWO\$$WERCKER_DOCKER_HUB_PUSH_PTHREE
+docker login -u $WERCKER_DOCKER_HUB_PUSH_USERNAME -p $PASSWORD -e $WERCKER_DOCKER_HUB_PUSH_EMAIL
 docker push $WERCKER_DOCKER_HUB_PUSH_IMAGE
+
