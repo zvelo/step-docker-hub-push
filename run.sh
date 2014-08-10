@@ -36,7 +36,7 @@ then
     exit 1;
 fi
 
-TARFILE="${WERCKER_DOCKER_HUB_PUSH_IMAGE/\//-}"
+TARFILE="${WERCKER_DOCKER_HUB_PUSH_IMAGE/\//-}.tar"
 
 docker load -i ${WERCKER_ROOT}/${TARFILE}
 
