@@ -36,26 +36,11 @@ then
     exit 1;
 fi
 
+TARFILE="${WERCKER_DOCKER_HUB_PUSH_IMAGE/\//-}"
 
-docker_push() {
-    set +e;
-    local user=$1;
-    local pass=$2;
-    local email=$3;
-    local image=$4;
-
-    docker version
-    docker images
-    #echo "Email: $email"
-    #echo "docker login --username=$user $pass"
-    docker login -u $user -p $pass -e $email;
-    docker push $image;
-    set -e;
-}
-
-#docker_push $WERCKER_DOCKER_HUB_PUSH_USERNAME $WERCKER_DOCKER_HUB_PUSH_PASSWORD $WERCKER_DOCKER_HUB_PUSH_EMAIL $WERCKER_DOCKER_HUB_PUSH_IMAGE;
+docker load -i ${WERCKER_ROOT}/${TARFILE}
 
 PASSWORD=$WERCKER_DOCKER_HUB_PUSH_PONE\$$WERCKER_DOCKER_HUB_PUSH_PTWO\$$WERCKER_DOCKER_HUB_PUSH_PTHREE
 docker login -u $WERCKER_DOCKER_HUB_PUSH_USERNAME -p $PASSWORD -e $WERCKER_DOCKER_HUB_PUSH_EMAIL
 docker push $WERCKER_DOCKER_HUB_PUSH_IMAGE
-
+exit 0
