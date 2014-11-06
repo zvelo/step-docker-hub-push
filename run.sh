@@ -24,7 +24,13 @@ then
     exit 1;
 fi
 
-TARFILE="${WERCKER_DOCKER_HUB_PUSH_IMAGE/\//-}.tar"
+if [ ! -n "$WERCKER_DOCKER_HUB_PUSH_TARFILE" ]
+then
+    error 'Please specify docker image tar file';
+    exit 1;
+fi
+
+TARFILE=$WERCKER_DOCKER_HUB_PUSH_TARFILE
 
 docker load -i ${WERCKER_ROOT}/${TARFILE}
 
