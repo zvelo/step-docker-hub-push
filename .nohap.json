@@ -1,13 +1,13 @@
 {
     "github": {
-        "repo": "step-docker-hub-push"
+        "repo": "zvelo-nsqd"
     },
     "pivotal_tracker": {
         "project": {
-            "id": 933918
+            "id": 1198000
         }
     },
     "hipchat": {
-        "room": "NoHAP"
+        "room": "928727"
     }
 }
