@@ -1,5 +1,5 @@
 name: docker-hub-push
-version: 1.0.15
+version: 1.0.16
 description: |
   docker-hub-push step
   Options:
