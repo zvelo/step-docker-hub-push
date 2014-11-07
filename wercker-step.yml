@@ -1,5 +1,5 @@
 name: docker-hub-push
-version: 1.0.14
+version: 1.0.15
 description: |
   docker-hub-push step
   Options:
@@ -7,4 +7,3 @@ description: |
     password: Docker Hub password
     email: Docker Hub email
     image: Docker image
-    tarfile: Docker image tar file
